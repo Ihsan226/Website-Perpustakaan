@@ -1,0 +1,421 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Umum untuk semua konten */
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content-section {
+    display: none;
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Beranda */
+#home {
+    text-align: center;
+    padding: 50px 0;
+    margin-bottom: 20px;
+}
+
+#home h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#home p {
+    font-size: 18px;
+}
+
+/* Daftar Buku */
+#books table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#books table th,
+#books table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#books table th {
+    background-color: #333;
+    color: #fff;
+}
+
+#books table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Formulir Pinjam & Kembalikan Buku */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+form .form-group label {
+    margin-bottom: 5px;
+}
+
+form .form-group input[type="text"],
+form .form-group input[type="email"],
+form .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Membuat dua kolom untuk label dan input supaya lebih rapi */
+form .form-row {
+    display: flex;
+    gap: 20px;
+}
+
+form .form-row .form-group {
+    flex: 1;
+}
+
+form .form-row .form-group label {
+    margin-bottom: 5px;
+}
+
+form .form-row .form-group input[type="text"],
+form .form-row .form-group input[type="email"],
+form .form-row .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Data Peminjam */
+#borrowers {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#borrowers h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+#borrowers table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#borrowers table th,
+#borrowers table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#borrowers table th {
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#borrowers table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#borrowers table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#borrowers .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#borrowers .action-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#borrowers .action-buttons .edit {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#borrowers .action-buttons .edit:hover {
+    background-color: #45a049;
+}
+
+#borrowers .action-buttons .delete {
+    background-color: #f44336;
+    color: #fff;
+}
+
+#borrowers .action-buttons .delete:hover {
+    background-color: #e53935;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    #borrowers table th,
+    #borrowers table td {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    #borrowers h2 {
+        font-size: 20px;
+    }
+}
+/* Data Pengembalian */
+#returns {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#returns h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+#returns table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#returns table th,
+#returns table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#returns table th {
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#returns table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#returns table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#returns .action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#returns .action-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#returns .action-buttons .extend {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+#returns .action-buttons .extend:hover {
+    background-color: #1976D2;
+}
+
+#returns .action-buttons .mark-returned {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#returns .action-buttons .mark-returned:hover {
+    background-color: #45a049;
+}
+
+#returns .action-buttons .delete {
+    background-color: #f44336;
+    color: #fff;
+}
+
+#returns .action-buttons .delete:hover {
+    background-color: #e53935;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    #returns table th,
+    #returns table td {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    #returns h2 {
+        font-size: 20px;
+    }
+}
+
+/* Tentang Perpustakaan */
+#about p {
+    font-size: 18px;
+}
+
+/* Kontak */
+#contact ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+#contact ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#contact ul li strong {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    #books table {
+        font-size: 14px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}

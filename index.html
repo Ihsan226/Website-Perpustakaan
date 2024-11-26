@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Perpustakaan Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Sistem Perpustakaan</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Beranda</a></li>
+                    <li><a href="#" onclick="showSection('books')">Daftar Buku</a></li>
+                    <li><a href="#" onclick="showSection('borrow')">Pinjam Buku</a></li>
+                    <li><a href="#" onclick="showSection('return')">Pengembalian Buku</a></li>
+                    <li><a href="#" onclick="showSection('borrowers')">Data Peminjam</a></li>
+                    <li><a href="#" onclick="showSection('returns')">Data Pengembalian</a></li>
+                    <li><a href="#" onclick="showSection('about')">Tentang</a></li>
+                    <li><a href="#" onclick="showSection('contact')">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Beranda -->
+    <section id="home" class="content-section">
+        <div class="container">
+            <h2>Selamat Datang di Perpustakaan</h2>
+            <p>Selamat datang di Perpustakaan kami! Kami sangat senang menyambut Anda ke dalam dunia yang penuh dengan pengetahuan, informasi, dan inspirasi yang tak terbatas.</p>
+        </div>
+    </section>
+
+    <!-- Daftar Buku -->
+    <section id="books" class="content-section">
+        <div class="container">
+            <h2>Daftar Buku</h2>
+            <table id="booksTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Judul Buku</th>
+                        <th>Pengarang</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data buku akan diisi dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Pinjam Buku -->
+    <section id="borrow" class="content-section">
+        <div class="container">
+            <h2>Pinjam Buku</h2>
+            <label for="bookSelect">Pilih Buku:</label>
+            <select id="bookSelect"></select>
+            <br><br>
+            <label for="borrowerName">Nama:</label>
+            <input type="text" id="borrowerName" placeholder="Masukkan nama Anda" required>
+            <br><br>
+            <button onclick="borrowBook()">Pinjam Buku</button>
+            <p id="borrowMessage"></p>
+        </div>
+    </section>
+
+    <!-- Pengembalian Buku -->
+    <section id="return" class="content-section">
+        <div class="container">
+            <h2>Pengembalian Buku</h2>
+            <label for="returnSelect">Pilih Buku yang Dikembalikan:</label>
+            <select id="returnSelect"></select>
+            <br><br>
+            <button onclick="returnBook()">Kembalikan Buku</button>
+            <p id="returnMessage"></p>
+        </div>
+    </section>
+
+    <!-- Data Peminjam Buku -->
+    <section id="borrowers" class="content-section">
+        <div class="container">
+            <h2>Data Peminjam Buku</h2>
+            <table id="borrowersTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Peminjam</th>
+                        <th>Judul Buku</th>
+                        <th>Tanggal Peminjaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data peminjam akan diisi dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Data Pengembalian Buku -->
+    <section id="returns" class="content-section">
+        <div class="container">
+            <h2>Data Pengembalian Buku</h2>
+            <table id="returnsTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Pengembali</th>
+                        <th>Judul Buku</th>
+                        <th>Tanggal Pengembalian</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data pengembalian akan diisi dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tentang -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2>Tentang Perpustakaan</h2>
+            <p>Selamat datang di Sistem Perpustakaan kami, sebuah platform digital yang dirancang untuk mempermudah pengelolaan koleksi buku dan aktivitas perpustakaan. Dengan sistem ini, kami menghadirkan solusi modern bagi pengguna, memungkinkan proses pencarian, peminjaman, hingga pengembalian buku dilakukan dengan cepat dan efisien.
+
+                Kami berkomitmen untuk mendukung kemajuan literasi melalui teknologi, dengan menyediakan fitur-fitur unggulan seperti pencarian buku yang akurat, pemesanan secara online, serta notifikasi pengingat untuk pengembalian buku. Sistem ini juga dirancang ramah pengguna, baik untuk pustakawan dalam mengelola inventaris maupun untuk anggota perpustakaan yang ingin menikmati akses cepat ke koleksi buku.</p>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="content-section">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <ul>
+                <li><strong>Nomor Telepon:</strong> +62 821 1220 4286</li>
+                <li><strong>Email:</strong> Ihsanahmad660@gmail.com</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sistem Perpustakaan Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const books = [
+            { id: 1, title: "Sejarah Indonesia", author: "Ahmad Yani", status: "Tersedia" },
+            { id: 2, title: "Matematika", author: "Siti Nur", status: "Tersedia" },
+            { id: 3, title: "Sejarah Dunia", author: "Faisal Rahman", status: "Dipinjam" },
+            { id: 4, title: "Bahasa Inggris Dasar", author: "John Doe", status: "Tersedia" },
+            { id: 5, title: "Adab Saat Berbicara", author: "Ali Hendra", status: "Tersedia" },
+            { id: 6, title: "Sosiologi", author: "Max Weber", status: "Tersedia" },
+            { id: 7, title: "Power Of Law", author: "Robert Greene", status: "Tersedia" },
+            { id: 8, title: "Sebuah Seni Untuk Bersikap Bodo Amat", author: "Mark Manson", status: "Tersedia" },
+            { id: 9, title: "KATA", author: "Rintik Sedu", status: "Tersedia" },
+            { id: 10, title: "Go-Toubun No Hanayome", author: "Negi Haruba", status: "Tersedia" }
+        ];
+    
+        const borrowers = [];
+        const returns = [];
+    
+        function displayBooks() {
+            const tableBody = document.querySelector("#booksTable tbody");
+            tableBody.innerHTML = "";
+            books.forEach((book, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.status}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+    
+        function populateDropdowns() {
+    const borrowSelect = document.getElementById("bookSelect");
+    const returnSelect = document.getElementById("returnSelect");
+
+    borrowSelect.innerHTML = "<option value=''>Pilih Buku</option>";
+    returnSelect.innerHTML = "<option value=''>Pilih Buku</option>";
+
+    books.forEach(book => {
+        if (book.status === "Tersedia") {
+            const option = document.createElement("option");
+            option.value = book.id;
+            option.textContent = book.title;
+            borrowSelect.appendChild(option);
+        }
+        if (book.status === "Dipinjam") {
+            const option = document.createElement("option");
+            option.value = book.id;
+            option.textContent = `${book.title} - Dipinjam oleh ${borrowers.find(b => b.bookTitle === book.title)?.borrowerName || 'Tidak Diketahui'}`;
+            returnSelect.appendChild(option);
+        }
+    });
+}
+
+    
+        function borrowBook() {
+            const bookId = parseInt(document.getElementById("bookSelect").value);
+            const borrowerName = document.getElementById("borrowerName").value;
+    
+            if (!bookId) {
+                document.getElementById("borrowMessage").textContent = "Silakan pilih buku terlebih dahulu.";
+                return;
+            }
+            if (!borrowerName.trim()) {
+                document.getElementById("borrowMessage").textContent = "Nama tidak boleh kosong.";
+                return;
+            }
+    
+            const book = books.find(b => b.id === bookId);
+            if (book && book.status === "Tersedia") {
+                book.status = "Dipinjam";
+                const dateBorrowed = new Date().toLocaleDateString();
+    
+                borrowers.push({ borrowerName, bookTitle: book.title, dateBorrowed });
+                document.getElementById("borrowMessage").textContent = `Buku "${book.title}" berhasil dipinjam oleh ${borrowerName}.`;
+    
+                displayBooks();
+                populateDropdowns();
+                displayBorrowers();
+            }
+        }
+    
+        function returnBook() {
+    const bookId = parseInt(document.getElementById("returnSelect").value);
+
+    if (!bookId) {
+        document.getElementById("returnMessage").textContent = "Silakan pilih buku yang akan dikembalikan.";
+        return;
+    }
+
+    const book = books.find(b => b.id === bookId);
+    if (book && book.status === "Dipinjam") {
+        book.status = "Tersedia";
+        const borrower = borrowers.find(b => b.bookTitle === book.title);
+        const dateReturned = new Date().toLocaleDateString();
+
+        if (borrower) {
+            returns.push({ ...borrower, dateReturned });
+            borrowers.splice(borrowers.indexOf(borrower), 1);
+        }
+
+        document.getElementById("returnMessage").textContent = `Buku "${book.title}" yang dipinjam oleh ${borrower?.borrowerName || 'Nama tidak diketahui'} berhasil dikembalikan.`;
+
+        displayBooks();
+        populateDropdowns();
+        displayBorrowers();
+        displayReturns();
+    }
+}
+
+    
+        function displayBorrowers() {
+            const tableBody = document.querySelector("#borrowersTable tbody");
+            tableBody.innerHTML = "";
+            borrowers.forEach((entry, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${entry.borrowerName}</td>
+                    <td>${entry.bookTitle}</td>
+                    <td>${entry.dateBorrowed}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+    
+        function displayReturns() {
+            const tableBody = document.querySelector("#returnsTable tbody");
+            tableBody.innerHTML = "";
+            returns.forEach((entry, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${entry.borrowerName}</td>
+                    <td>${entry.bookTitle}</td>
+                    <td>${entry.dateReturned}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+    
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.style.display = 'none');
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    
+        window.onload = function () {
+            showSection('home');
+            displayBooks();
+            populateDropdowns();
+            displayBorrowers();
+            displayReturns();
+        };
+    </script>
+    
