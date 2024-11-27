@@ -112,21 +112,12 @@ form label {
     display: block;
 }
 
-form .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-form .form-group label {
-    margin-bottom: 5px;
-}
-
-form .form-group input[type="text"],
-form .form-group input[type="email"],
-form .form-group select {
+form input[type="text"],
+form input[type="email"],
+form select {
     width: 100%;
     padding: 10px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -141,38 +132,11 @@ form button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
-    margin-top: 20px;
 }
 
 form button:hover {
     background-color: #555;
 }
-
-/* Membuat dua kolom untuk label dan input supaya lebih rapi */
-form .form-row {
-    display: flex;
-    gap: 20px;
-}
-
-form .form-row .form-group {
-    flex: 1;
-}
-
-form .form-row .form-group label {
-    margin-bottom: 5px;
-}
-
-form .form-row .form-group input[type="text"],
-form .form-row .form-group input[type="email"],
-form .form-row .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
 /* Data Peminjam */
 #borrowers {
     background-color: #fff;
